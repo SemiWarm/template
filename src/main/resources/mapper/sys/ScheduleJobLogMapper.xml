@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.sprivacy.template.modules.sys.mapper.ScheduleJobLogMapper">
+    <resultMap id="BaseResultMap" type="cn.sprivacy.template.modules.sys.model.ScheduleJobLog">
+        <id column="log_id" jdbcType="BIGINT" property="logId"/>
+        <result column="job_id" jdbcType="BIGINT" property="jobId"/>
+        <result column="bean_name" jdbcType="VARCHAR" property="beanName"/>
+        <result column="method_name" jdbcType="VARCHAR" property="methodName"/>
+        <result column="params" jdbcType="VARCHAR" property="params"/>
+        <result column="status" jdbcType="TINYINT" property="status"/>
+        <result column="error" jdbcType="VARCHAR" property="error"/>
+        <result column="times" jdbcType="INTEGER" property="times"/>
+        <result column="create_at" jdbcType="TIMESTAMP" property="createAt"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    log_id, job_id, bean_name, method_name, params, status, error, times, create_at
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from schedule_job_log
+        where log_id = #{logId,jdbcType=BIGINT}
+    </select>
+</mapper>
