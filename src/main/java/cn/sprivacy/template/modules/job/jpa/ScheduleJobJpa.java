@@ -1,6 +1,6 @@
-package cn.sprivacy.template.modules.sys.jpa;
+package cn.sprivacy.template.modules.job.jpa;
 
-import cn.sprivacy.template.modules.sys.model.ScheduleJob;
+import cn.sprivacy.template.modules.job.model.ScheduleJob;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 

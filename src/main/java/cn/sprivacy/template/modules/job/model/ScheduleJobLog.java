@@ -1,4 +1,4 @@
-package cn.sprivacy.template.modules.sys.model;
+package cn.sprivacy.template.modules.job.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +27,7 @@ public class ScheduleJobLog {
 
     private String params;
 
-    private Byte status;
+    private Integer status;
 
     private String error;
 
@@ -75,11 +75,11 @@ public class ScheduleJobLog {
         this.params = params == null ? null : params.trim();
     }
 
-    public Byte getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Byte status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

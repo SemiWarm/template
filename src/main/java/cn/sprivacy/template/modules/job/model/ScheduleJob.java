@@ -1,4 +1,4 @@
-package cn.sprivacy.template.modules.sys.model;
+package cn.sprivacy.template.modules.job.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,6 +15,11 @@ import java.util.Date;
 @Table(name = "schedule_job")
 public class ScheduleJob {
 
+    /**
+     * 任务调度参数key
+     */
+    public static final String JOB_PARAM_KEY = "JOB_PARAM_KEY";
+
     @Id
     @GeneratedValue
     private Long jobId;
@@ -27,7 +32,7 @@ public class ScheduleJob {
 
     private String cronExpression;
 
-    private Byte status;
+    private Integer status;
 
     private String remark;
 
@@ -75,11 +80,11 @@ public class ScheduleJob {
         this.cronExpression = cronExpression == null ? null : cronExpression.trim();
     }
 
-    public Byte getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Byte status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

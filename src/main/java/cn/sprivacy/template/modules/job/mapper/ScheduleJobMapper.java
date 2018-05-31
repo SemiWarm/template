@@ -1,7 +1,9 @@
-package cn.sprivacy.template.modules.sys.mapper;
+package cn.sprivacy.template.modules.job.mapper;
 
-import cn.sprivacy.template.modules.sys.model.ScheduleJob;
+import cn.sprivacy.template.modules.job.model.ScheduleJob;
 import org.springframework.stereotype.Component;
+
+import java.util.Map;
 
 /**
  * @author fanglang
@@ -18,4 +20,12 @@ public interface ScheduleJobMapper {
      * @return
      */
     ScheduleJob selectByPrimaryKey(Long jobId);
+
+    /**
+     * 批量更新
+     *
+     * @param map
+     * @return
+     */
+    int updateInBatch(Map<String, Object> map);
 }

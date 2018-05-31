@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.sprivacy.template.modules.sys.mapper.ScheduleJobMapper">
-    <resultMap id="BaseResultMap" type="cn.sprivacy.template.modules.sys.model.ScheduleJob">
+<mapper namespace="cn.sprivacy.template.modules.job.mapper.ScheduleJobMapper">
+    <resultMap id="BaseResultMap" type="cn.sprivacy.template.modules.job.model.ScheduleJob">
         <id column="job_id" jdbcType="BIGINT" property="jobId"/>
         <result column="bean_name" jdbcType="VARCHAR" property="beanName"/>
         <result column="method_name" jdbcType="VARCHAR" property="methodName"/>
         <result column="params" jdbcType="VARCHAR" property="params"/>
         <result column="cron_expression" jdbcType="VARCHAR" property="cronExpression"/>
-        <result column="status" jdbcType="TINYINT" property="status"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
         <result column="remark" jdbcType="VARCHAR" property="remark"/>
         <result column="create_by" jdbcType="BIGINT" property="createBy"/>
         <result column="create_at" jdbcType="TIMESTAMP" property="createAt"/>
@@ -22,4 +22,13 @@
         from schedule_job
         where job_id = #{jobId,jdbcType=BIGINT}
     </select>
+
+    <update id="updateInBatch">
+        update schedule_job
+        set
+        <foreach collection="_parameter" item="val" index="key" separator=",">
+            ${key} = #{val}
+        </foreach>
+        where job_id = #{jobId}
+    </update>
 </mapper>

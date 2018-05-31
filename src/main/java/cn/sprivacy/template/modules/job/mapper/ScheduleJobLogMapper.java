@@ -1,6 +1,6 @@
-package cn.sprivacy.template.modules.sys.mapper;
+package cn.sprivacy.template.modules.job.mapper;
 
-import cn.sprivacy.template.modules.sys.model.ScheduleJobLog;
+import cn.sprivacy.template.modules.job.model.ScheduleJobLog;
 import org.springframework.stereotype.Component;
 
 /**
