@@ -22,7 +22,7 @@ public class SysConfig {
 
     private String paramValue;
 
-    private Byte status;
+    private Integer status;
 
     private String remark;
 
@@ -50,11 +50,11 @@ public class SysConfig {
         this.paramValue = paramValue == null ? null : paramValue.trim();
     }
 
-    public Byte getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Byte status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
